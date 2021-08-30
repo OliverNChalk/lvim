@@ -16,6 +16,9 @@ vim.opt.tabstop = 4
 lvim.lang.typescript.formatters = { { exe = "eslint_d" } }
 lvim.lang.typescript.linters = { { exe = "eslint_d" } }
 
+-- JSON
+lvim.lang.json.formatters = { { exe = 'prettierd' } }
+
 ------
 -- Plugins
 ------
@@ -30,9 +33,6 @@ lvim.builtin.nvimtree.show_icons.git = 0
 
 lvim.builtin.treesitter.ensure_installed = "maintained"
 lvim.builtin.treesitter.highlight.enabled = true
-
-lvim.lsp.completion.
--- lvim.lsp.completion.item_kind[1] = nil
 
 -- Extra
 lvim.plugins = {
