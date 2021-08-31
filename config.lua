@@ -2,7 +2,7 @@
 lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.lint_on_save = true
-lvim.colorscheme = "spacegray"
+lvim.colorscheme = "onedarker"
 
 -- General NeoVim
 vim.opt.relativenumber = true
