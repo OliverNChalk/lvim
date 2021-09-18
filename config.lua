@@ -30,9 +30,13 @@ lvim.builtin.terminal.active = true
 
 lvim.builtin.nvimtree.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
+lvim.builtin.nvimtree.hide_dotfiles = 0
 
 lvim.builtin.treesitter.ensure_installed = "maintained"
 lvim.builtin.treesitter.highlight.enabled = true
+
+-- lualine_y is nil by default, use it show line and col number
+lvim.builtin.lualine.sections.lualine_y = { "location" }
 
 -- Extra
 lvim.plugins = {
