@@ -13,8 +13,15 @@ vim.opt.tabstop = 4
 
 -- Languages
 -- TypeScript
-lvim.lang.typescript.formatters = { { exe = "eslint_d" } }
 lvim.lang.typescript.linters = { { exe = "eslint_d" } }
+lvim.lang.typescript.formatters = { { exe = "eslint_d" } }
+
+lvim.lang.javascript.linters = lvim.lang.typescript.linters;
+lvim.lang.javascript.formatters = lvim.lang.typescript.formatters;
+lvim.lang.typescriptreact.linters = lvim.lang.typescript.linters;
+lvim.lang.typescriptreact.formatters = lvim.lang.typescript.formatters;
+lvim.lang.javascriptreact.linters = lvim.lang.typescript.linters;
+lvim.lang.javascriptreact.formatters = lvim.lang.typescript.formatters;
 
 -- JSON
 lvim.lang.json.formatters = { { exe = 'prettierd' } }
