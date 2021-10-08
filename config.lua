@@ -26,6 +26,9 @@ lvim.lang.javascriptreact.formatters = lvim.lang.typescript.formatters;
 -- JSON
 -- lvim.lang.json.formatters = { { exe = 'prettierd' } }
 
+-- Solidity
+-- lvim.lang.solidity.formatters = { { exe = "prettier" } }
+
 ------
 -- Plugins
 ------
@@ -47,6 +50,7 @@ lvim.builtin.lualine.sections.lualine_y = { "location" }
 
 -- Extra
 lvim.plugins = {
+  { "ChristianChiarulli/vim-solidity" },
   {
     "phaazon/hop.nvim",
     event = "BufRead",
@@ -90,3 +94,13 @@ lvim.leader = "space"
 -- Replace default toggle highlight with clear search
 lvim.builtin.which_key.mappings["h"] = nil
 lvim.builtin.which_key.mappings["n"] = { ":let @/=''<CR>", "Clear Search" }
+
+-- *Must* be *S*olidity not solidity
+require("nvim-treesitter.parsers").get_parser_configs().solidity = {
+  install_info = {
+    url = "https://github.com/JoranHonig/tree-sitter-solidity",
+    files = { "src/parser.c" },
+    requires_generate_from_grammar = true,
+  },
+  filetype = "solidity",
+}
