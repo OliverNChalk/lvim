@@ -24,7 +24,7 @@ lvim.lang.javascriptreact.linters = lvim.lang.typescript.linters;
 lvim.lang.javascriptreact.formatters = lvim.lang.typescript.formatters;
 
 -- JSON
--- lvim.lang.json.formatters = { { exe = 'prettierd' } }
+lvim.lang.json.formatters = { { exe = 'prettierd' } }
 
 -- Solidity
 -- lvim.lang.solidity.formatters = { { exe = "prettier" } }
