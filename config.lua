@@ -3,6 +3,7 @@ lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.lint_on_save = true
 lvim.colorscheme = "onedarker"
+lvim.lsp.automatic_servers_installation = false
 
 -- General NeoVim
 vim.opt.relativenumber = true
@@ -26,6 +27,12 @@ lvim.lang.javascriptreact.formatters = lvim.lang.typescript.formatters;
 -- JSON
 lvim.lang.json.formatters = { { exe = 'prettierd' } }
 
+-- C / C++
+-- lvim.lang.c.linters = { { exe = "" } };
+-- lvim.lang.c.formatters = { { exe = "" } };
+-- lvim.lang.cpp.linters = { { exe = "" } };
+-- lvim.lang.cpp.formatters = { { exe = "" } };
+
 -- Solidity
 -- lvim.lang.solidity.formatters = { { exe = "prettier" } }
 
@@ -47,6 +54,19 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- lualine_y is nil by default, use it show line and col number
 lvim.builtin.lualine.sections.lualine_y = { "location" }
+
+lvim.builtin.cmp.sources = {
+  { name = "nvim_lsp" },
+  { name = "path" },
+  -- { name = "luasnip" },
+  -- { name = "cmp_tabnine" },
+  { name = "nvim_lua" },
+  { name = "buffer" },
+  { name = "calc" },
+  -- { name = "emoji" },
+  { name = "treesitter" },
+  -- { name = "crates" },
+}
 
 -- Extra
 lvim.plugins = {
