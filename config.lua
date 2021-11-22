@@ -13,28 +13,11 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 
 -- Languages
--- TypeScript
-lvim.lang.typescript.linters = { { exe = "eslint_d" } }
-lvim.lang.typescript.formatters = { { exe = "eslint_d" } }
-
-lvim.lang.javascript.linters = lvim.lang.typescript.linters;
-lvim.lang.javascript.formatters = lvim.lang.typescript.formatters;
-lvim.lang.typescriptreact.linters = lvim.lang.typescript.linters;
-lvim.lang.typescriptreact.formatters = lvim.lang.typescript.formatters;
-lvim.lang.javascriptreact.linters = lvim.lang.typescript.linters;
-lvim.lang.javascriptreact.formatters = lvim.lang.typescript.formatters;
-
--- JSON
-lvim.lang.json.formatters = { { exe = 'prettierd' } }
-
--- C / C++
--- lvim.lang.c.linters = { { exe = "" } };
--- lvim.lang.c.formatters = { { exe = "" } };
--- lvim.lang.cpp.linters = { { exe = "" } };
--- lvim.lang.cpp.formatters = { { exe = "" } };
-
--- Solidity
--- lvim.lang.solidity.formatters = { { exe = "prettier" } }
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+  { exe = "eslint_d", filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" } },
+  { exe = "prettier", filetypes = { "json" } },
+}
 
 ------
 -- Plugins
@@ -70,7 +53,6 @@ lvim.builtin.cmp.sources = {
 
 -- Extra
 lvim.plugins = {
-  { "ChristianChiarulli/vim-solidity" },
   {
     "phaazon/hop.nvim",
     event = "BufRead",
@@ -88,6 +70,15 @@ lvim.plugins = {
       vim.cmd("let g:smoothie_speed_constant_factor = 15")
     end,
   },
+  {
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    ft = "markdown",
+    config = function()
+      vim.g.mkdp_auto_start = 1
+    end,
+  },
+  { "ChristianChiarulli/vim-solidity" },
 }
 
 ------
@@ -115,7 +106,6 @@ lvim.leader = "space"
 lvim.builtin.which_key.mappings["h"] = nil
 lvim.builtin.which_key.mappings["n"] = { ":let @/=''<CR>", "Clear Search" }
 
--- *Must* be *S*olidity not solidity
 require("nvim-treesitter.parsers").get_parser_configs().solidity = {
   install_info = {
     url = "https://github.com/JoranHonig/tree-sitter-solidity",
