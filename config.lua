@@ -1,7 +1,7 @@
 -- General LunarVim
 lvim.log.level = "warn"
-lvim.format_on_save = true
-lvim.lint_on_save = true
+-- lvim.format_on_save = true
+-- lvim.lint_on_save = true
 lvim.colorscheme = "onedarker"
 lvim.lsp.automatic_servers_installation = false
 
@@ -17,6 +17,11 @@ local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   { exe = "eslint_d", filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" } },
   { exe = "prettier", filetypes = { "json" } },
+}
+
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup {
+  { exe = "eslint_d", filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" } },
 }
 
 ------
