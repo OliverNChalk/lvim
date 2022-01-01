@@ -16,7 +16,7 @@ vim.opt.tabstop = 4
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   { exe = "eslint_d", filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" } },
-  { exe = "prettier", filetypes = { "json" } },
+  { exe = "prettierd", filetypes = { "json" } },
 }
 
 local linters = require "lvim.lsp.null-ls.linters"
@@ -83,7 +83,7 @@ lvim.plugins = {
       vim.g.mkdp_auto_start = 1
     end,
   },
-  { "ChristianChiarulli/vim-solidity" },
+  { "LunarVim/vim-solidity" },
 }
 
 ------
