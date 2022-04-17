@@ -44,19 +44,6 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- lualine_y is nil by default, use it show line and col number
 lvim.builtin.lualine.sections.lualine_y = { "location" }
 
-lvim.builtin.cmp.sources = {
-  { name = "nvim_lsp" },
-  { name = "path" },
-  -- { name = "luasnip" },
-  -- { name = "cmp_tabnine" },
-  { name = "nvim_lua" },
-  { name = "buffer" },
-  { name = "calc" },
-  -- { name = "emoji" },
-  { name = "treesitter" },
-  -- { name = "crates" },
-}
-
 -- Extra
 lvim.plugins = {
   {
@@ -84,7 +71,6 @@ lvim.plugins = {
       vim.g.mkdp_auto_start = 1
     end,
   },
-  { "LunarVim/vim-solidity" },
 }
 
 ------
@@ -105,18 +91,6 @@ vim.api.nvim_set_keymap("n", "#", "#zz", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "g*", "g*zz", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "g#", "g#zz", { noremap = true, silent = true })
 
--- WhichKey
-lvim.leader = "space"
-
 -- Replace default toggle highlight with clear search
 lvim.builtin.which_key.mappings["h"] = nil
 lvim.builtin.which_key.mappings["n"] = { ":let @/=''<CR>", "Clear Search" }
-
-require("nvim-treesitter.parsers").get_parser_configs().solidity = {
-  install_info = {
-    url = "https://github.com/JoranHonig/tree-sitter-solidity",
-    files = { "src/parser.c" },
-    requires_generate_from_grammar = true,
-  },
-  filetype = "solidity",
-}
